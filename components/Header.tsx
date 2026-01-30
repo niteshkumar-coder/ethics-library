@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ user, onAuthClick, onLogout, theme, tog
 
   return (
     <header className={`sticky top-0 z-50 backdrop-blur-md border-b transition-all duration-500 ${
-      isDark ? 'bg-[#000814]/90 border-gold/20' : 'bg-[#F5F5DC]/95 border-gold/30'
+      isDark ? 'bg-[#000814]/90 border-gold/20' : 'bg-white/95 border-royal/10 shadow-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-4 group">
@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({ user, onAuthClick, onLogout, theme, tog
              <img 
                 src="https://img.icons8.com/color/96/scales--v1.png" 
                 alt="Logo" 
-                className={`w-full h-full object-contain filter ${isDark ? 'brightness-125 saturate-[1.5]' : ''}`}
+                className={`w-full h-full object-contain filter ${isDark ? 'brightness-125 saturate-[1.5]' : 'contrast-125'}`}
              />
           </div>
           <div className="flex flex-col">
@@ -40,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ user, onAuthClick, onLogout, theme, tog
               <h1 className={`font-cinzel text-xl font-bold tracking-[0.2em] leading-none ${isDark ? 'text-gold' : 'text-royal'}`}>
                 {BRAND.NAME}
               </h1>
-              <div className="px-2 py-0.5 bg-gold/10 border border-gold/30 rounded text-[9px] font-bold text-gold">4.5 ★</div>
+              <div className={`px-2 py-0.5 border rounded text-[9px] font-bold ${isDark ? 'bg-gold/10 border-gold/30 text-gold' : 'bg-royal/5 border-royal/20 text-royal'}`}>4.5 ★</div>
             </div>
             <p className={`text-[8px] uppercase tracking-[0.4em] font-bold mt-1 ${isDark ? 'text-white/60' : 'text-maroon'}`}>
               {BRAND.SUBTITLE}
@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ user, onAuthClick, onLogout, theme, tog
               to={link.path} 
               className={`text-[11px] font-bold uppercase tracking-[0.2em] transition-all pb-1 border-b-2 ${
                 location.pathname === link.path 
-                  ? 'text-gold border-gold' 
+                  ? `${isDark ? 'text-gold border-gold' : 'text-royal border-royal'}` 
                   : `border-transparent hover:text-gold hover:border-gold ${isDark ? 'text-white/70' : 'text-royal/70'}`
               }`}
             >
@@ -90,16 +90,20 @@ const Header: React.FC<HeaderProps> = ({ user, onAuthClick, onLogout, theme, tog
           {user ? (
             <button 
               onClick={onLogout}
-              className="w-10 h-10 rounded-full border-2 border-gold bg-royal flex items-center justify-center text-gold font-cinzel font-bold hover:bg-maroon transition-colors"
+              className={`w-10 h-10 rounded-full border-2 flex items-center justify-center font-cinzel font-bold transition-colors ${
+                isDark ? 'border-gold bg-royal text-gold hover:bg-maroon' : 'border-royal bg-white text-royal hover:bg-royal hover:text-white'
+              }`}
             >
               {user.name[0].toUpperCase()}
             </button>
           ) : (
             <button 
               onClick={onAuthClick}
-              className="w-10 h-10 rounded-full border-2 border-gold bg-royal flex items-center justify-center group hover:bg-maroon transition-all"
+              className={`w-10 h-10 rounded-full border-2 flex items-center justify-center group transition-all ${
+                isDark ? 'border-gold bg-royal hover:bg-maroon' : 'border-royal bg-white hover:bg-royal group-hover:stroke-white'
+              }`}
             >
-               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={isDark ? "#D4AF37" : "#002366"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-white transition-colors"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </button>
           )}
         </div>

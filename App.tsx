@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header.tsx';
@@ -13,7 +14,7 @@ import { User } from './types.ts';
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
     const savedUser = localStorage.getItem('eklavya_user');
@@ -23,9 +24,13 @@ const App: React.FC = () => {
     if (savedTheme) {
       setTheme(savedTheme);
     } else {
-      setTheme('dark');
+      setTheme('light');
     }
   }, []);
+
+  useEffect(() => {
+    document.body.className = theme === 'dark' ? 'antialiased sanctuary-bg-dark' : 'antialiased sanctuary-bg-light';
+  }, [theme]);
 
   const handleAuthSuccess = (userData: User) => {
     setUser(userData);
@@ -46,7 +51,7 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <div className={`flex flex-col min-h-screen transition-all duration-700 ${
-        theme === 'dark' ? 'sanctuary-bg-dark text-white' : 'bg-[#F5F5DC] text-royal'
+        theme === 'dark' ? 'text-white' : 'bg-[#FDFDFD] text-royal'
       }`}>
         <Header 
           user={user} 
