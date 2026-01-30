@@ -29,7 +29,7 @@
     }
   </script>
   <style>
-    /* Prevent white flash and blue dominance */
+    /* Prevent flat color look with a radial spotlight */
     html, body { 
       background-color: #000000; 
       color: white;
@@ -47,9 +47,9 @@
     
     .gold-glow { text-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
     
-    /* Global Depth Texture */
+    /* Global Depth Texture & Dynamic Radial Glow */
     .sanctuary-bg-dark {
-      background: radial-gradient(circle at 50% 50%, #0a0a0a 0%, #000000 100%) fixed;
+      background: radial-gradient(circle at 50% 40%, #151515 0%, #000000 70%) fixed;
       position: relative;
     }
     
@@ -58,20 +58,19 @@
       position: fixed;
       inset: 0;
       background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
-      opacity: 0.1;
+      opacity: 0.15;
       pointer-events: none;
       z-index: 0;
     }
 
     .gold-gradient-text {
-      background: linear-gradient(to bottom, #FFF 20%, #D4AF37 100%);
+      background: linear-gradient(to bottom, #FFF 10%, #D4AF37 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+    .section-border-top {
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
     }
   </style>
 <script type="importmap">

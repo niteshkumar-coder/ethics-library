@@ -37,22 +37,22 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
 
   return (
     <div className="flex flex-col">
-      {/* HERO SECTION - Moving from Nila to Obsidian Depth */}
+      {/* HERO SECTION - Deep Obsidian Depth with Spotlight */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src="https://nalandauniv.edu.in/wp-content/uploads/2019/06/library.jpg" 
             alt="Hero" 
-            className={`w-full h-full object-cover scale-105 ${isDark ? 'brightness-[0.25] grayscale-[0.2]' : 'brightness-75'}`} 
+            className={`w-full h-full object-cover scale-105 ${isDark ? 'brightness-[0.25] grayscale-[0.3]' : 'brightness-75'}`} 
           />
-          <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-transparent via-black/60 to-black' : 'bg-royal/20'}`}></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]"></div>
+          <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-transparent via-black/80 to-[#0c0c0c]' : 'bg-royal/20'}`}></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.9)_100%)]"></div>
         </div>
         
         <div className="relative z-10 text-center px-6 max-w-5xl">
           <div className="flex justify-center mb-12 animate-in slide-in-from-top duration-1000">
             <div className="px-8 py-3 bg-black/80 backdrop-blur-3xl border border-gold/30 rounded-full flex items-center space-x-4 shadow-[0_0_50px_rgba(212,175,55,0.1)]">
-               <span className="text-gold text-xs font-cinzel font-bold tracking-[0.4em]">PATNA'S PREMIER SANCTUARY</span>
+               <span className="text-gold text-[10px] font-cinzel font-bold tracking-[0.4em]">PATNA'S PREMIER SANCTUARY</span>
                <div className="w-[1px] h-4 bg-gold/30"></div>
                <div className="flex space-x-1">
                   {[...Array(5)].map((_, i) => <span key={i} className="text-gold text-[10px]">★</span>)}
@@ -65,7 +65,7 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
             <span className="text-white italic font-playfair font-normal lowercase tracking-normal text-3xl md:text-5xl opacity-80">{BRAND.SUBTITLE}</span>
           </h2>
           
-          <h3 className="text-white/60 font-lora text-lg md:text-xl mb-16 tracking-[0.5em] font-light italic max-w-xl mx-auto uppercase">
+          <h3 className="text-white/50 font-lora text-lg md:text-xl mb-16 tracking-[0.5em] font-light italic max-w-xl mx-auto uppercase">
             {BRAND.TAGLINE}
           </h3>
 
@@ -86,24 +86,25 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
         </div>
       </section>
 
-      {/* PILLARS - Obsidian Black to break the color flow */}
-      <section className="py-32 bg-[#050505] border-y border-white/5">
+      {/* PILLARS - Charcoal/Gunmetal contrast layer */}
+      <section className="py-32 bg-[#0c0c0c] section-border-top">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
           {sanctuaryPillars.map((pill) => (
-            <div key={pill.id} className="relative group p-12 bg-black/40 border border-white/5 hover:border-gold/40 transition-all duration-700 rounded-lg">
+            <div key={pill.id} className="relative group p-12 bg-black/60 border border-white/5 hover:border-gold/30 transition-all duration-700 rounded-lg">
                <div className="relative z-10">
                   <div className="text-6xl font-cinzel text-gold font-bold opacity-10 group-hover:opacity-100 transition-all mb-6">{pill.id}</div>
                   <h4 className="font-cinzel font-bold text-white tracking-[0.4em] text-lg mb-4 uppercase">{pill.title}</h4>
                   <div className="w-10 h-[1px] bg-gold mb-6 transition-all group-hover:w-20"></div>
                   <p className="text-sm font-lora italic text-white/40 leading-relaxed group-hover:text-white/70 transition-colors">{pill.desc}</p>
                </div>
+               <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* GALLERY - Pure Black contrast */}
-      <section className="py-32 bg-black">
+      {/* GALLERY - Absolute Black Canvas */}
+      <section className="py-32 bg-black section-border-top">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
             <div className="max-w-xl">
@@ -116,7 +117,7 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
           
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-10 space-y-10">
             {libraryImages.map((src, index) => (
-              <div key={index} className="relative overflow-hidden group rounded-sm shadow-2xl border border-white/5">
+              <div key={index} className="relative overflow-hidden group rounded-sm shadow-2xl border border-white/5 hover:border-gold/20 transition-all duration-500">
                 <img src={src} alt="View" className="w-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105 brightness-50 group-hover:brightness-100" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-10">
                    <p className="text-gold font-cinzel text-[10px] tracking-[0.5em] font-bold uppercase">Sector Observation {index + 1}</p>
@@ -127,18 +128,18 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
         </div>
       </section>
 
-      {/* REVIEWS - Deep Midnight Charcoal */}
-      <section className="py-32 bg-[#080808] relative">
-        <div className="section-divider absolute top-0 left-0 w-full"></div>
+      {/* REVIEWS - Midnight Navy Shift to break the greys */}
+      <section className="py-32 bg-[#000510] relative section-border-top">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-24">
             <h2 className="font-cinzel text-4xl font-bold text-white uppercase tracking-[0.3em]">Sanctuary <span className="text-gold italic font-playfair font-normal lowercase">testimonials</span></h2>
+            <div className="w-20 h-[1px] bg-gold/30 mx-auto mt-6"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
             {REVIEWS.map((review) => (
-              <div key={review.id} className="relative p-12 border border-white/5 bg-black/60 group hover:border-gold/20 transition-all">
+              <div key={review.id} className="relative p-12 border border-white/10 bg-black/40 group hover:border-gold/30 transition-all rounded-sm">
                 <div className="flex items-center space-x-6 mb-10">
-                  <div className="w-16 h-16 rounded-full bg-black border border-gold/40 flex items-center justify-center font-cinzel text-gold font-bold shadow-2xl group-hover:scale-110 transition-transform">{review.initials}</div>
+                  <div className="w-16 h-16 rounded-full bg-[#000a1f] border border-gold/40 flex items-center justify-center font-cinzel text-gold font-bold shadow-2xl group-hover:scale-110 transition-transform">{review.initials}</div>
                   <div>
                     <h4 className="font-cinzel font-bold text-xs uppercase tracking-widest text-white">{review.name}</h4>
                     <p className="text-[10px] text-gold/60 uppercase tracking-widest mt-1">{review.status}</p>
@@ -152,20 +153,20 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
         </div>
       </section>
 
-      {/* PETITION - Deep Maroon Red contrast */}
-      <section id="petition" className="py-32 bg-[#200000] relative overflow-hidden">
+      {/* PETITION - Deep Crimson warmth contrast */}
+      <section id="petition" className="py-32 bg-[#2a0000] relative overflow-hidden section-border-top">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/aged-paper.png')]"></div>
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-5 gap-20 items-center">
             <div className="md:col-span-2 space-y-6">
                <h2 className="font-cinzel text-4xl font-bold text-gold uppercase leading-tight gold-glow">Request <br/>Enrollment</h2>
                <div className="w-20 h-[2px] bg-gold/40"></div>
-               <p className="font-lora italic text-white/60 text-lg">"Excellence is not an act, but a habit. Enrollment is the first step toward that mastery."</p>
+               <p className="font-lora italic text-white/70 text-lg">"Excellence is not an act, but a habit. Enrollment is the first step toward that mastery."</p>
             </div>
             
-            <div className="md:col-span-3 bg-black/40 backdrop-blur-2xl p-12 border-t-4 border-gold shadow-2xl">
+            <div className="md:col-span-3 bg-black/60 backdrop-blur-2xl p-12 border-t-4 border-gold shadow-2xl rounded-sm">
               {isSubmitted ? (
-                <div className="text-center py-20">
+                <div className="text-center py-20 animate-in fade-in duration-700">
                    <div className="w-20 h-20 border border-gold rounded-full flex items-center justify-center mx-auto mb-8 animate-pulse">
                       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
                    </div>
@@ -189,8 +190,8 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
         </div>
       </section>
 
-      {/* MAP - Pitch Black HUD */}
-      <section className="py-32 bg-black border-t border-white/5">
+      {/* MAP - High-Contrast Tactical HUD on Black */}
+      <section className="py-32 bg-black section-border-top">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between mb-24 gap-12">
             <div className="text-center md:text-left">
@@ -212,7 +213,7 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
             </div>
           </div>
           
-          <div className="relative h-[600px] bg-[#050505] rounded-xl overflow-hidden border border-white/10 group shadow-[0_0_100px_rgba(212,175,55,0.05)]">
+          <div className="relative h-[600px] bg-[#0c0c0c] rounded-xl overflow-hidden border border-white/10 group shadow-[0_0_100px_rgba(212,175,55,0.05)]">
             <img 
               src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1500" 
               alt="Map" 
@@ -226,7 +227,6 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
                 <div className="relative p-6 bg-black border-2 border-gold rounded-full shadow-[0_0_50px_rgba(212,175,55,0.4)]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 </div>
-                {/* Floating HUD */}
                 <div className="absolute left-20 top-0 bg-black/90 border border-gold/40 p-6 backdrop-blur-xl rounded-lg whitespace-nowrap shadow-2xl animate-in fade-in slide-in-from-left duration-1000">
                   <p className="text-gold font-cinzel font-bold text-[11px] tracking-widest uppercase mb-2">Sanctuary Locked</p>
                   <p className="text-white font-lora italic text-lg mb-2">Ethics Main Archive</p>
