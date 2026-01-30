@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,20 +32,60 @@
     }
   </script>
   <style>
-    html, body { transition: background-color 0.5s ease, color 0.5s ease; margin: 0; padding: 0; min-height: 100vh; background-color: #FDFDFD; }
+    html, body { 
+      transition: background-color 0.5s ease, color 0.5s ease; 
+      margin: 0; 
+      padding: 0; 
+      min-height: 100vh; 
+      background-color: #FFFFFF; 
+    }
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #FDFDFD; }
+    ::-webkit-scrollbar-track { background: #FFFFFF; }
     ::-webkit-scrollbar-thumb { background: #002366; border-radius: 10px; }
+    
     .animate-scan-line { animation: scanLine 8s linear infinite; }
     @keyframes scanLine { 0% { transform: translateY(-100%); } 100% { transform: translateY(600%); } }
+    
     .gold-glow { text-shadow: 0 0 25px rgba(212, 175, 55, 0.4); }
-    .sanctuary-bg-dark { background: radial-gradient(circle at 50% 40%, #1a1a1a 0%, #000000 80%) fixed; }
-    .sanctuary-bg-light { background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #FDFDFD 80%) fixed; }
+    
+    .sanctuary-bg-dark { 
+      background: radial-gradient(circle at 50% 40%, #1a1a1a 0%, #000000 80%) fixed; 
+    }
+    
+    .sanctuary-bg-light { 
+      background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #FAFAFA 100%) fixed; 
+    }
+    
     #root { position: relative; z-index: 10; }
-    .gold-gradient-text { background: linear-gradient(to bottom, #FFF 0%, #D4AF37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .royal-gradient-text { background: linear-gradient(to bottom, #002366 0%, #800000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .section-separator { height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(0, 35, 102, 0.1) 50%, transparent 100%); }
-    .glass-card-light { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(0, 35, 102, 0.05); }
+    
+    .gold-gradient-text { 
+      background: linear-gradient(to bottom, #FFF 0%, #D4AF37 100%); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+    }
+    
+    .royal-gradient-text { 
+      background: linear-gradient(to bottom, #002366 0%, #800000 100%); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+    }
+    
+    .section-separator { 
+      height: 1px; 
+      background: linear-gradient(90deg, transparent 0%, rgba(0, 35, 102, 0.1) 50%, transparent 100%); 
+    }
+    
+    .glass-card-light { 
+      background: rgba(255, 255, 255, 0.9); 
+      backdrop-filter: blur(10px); 
+      border: 1px solid rgba(0, 35, 102, 0.05); 
+    }
+    
+    /* Ensure the body is always accessible even if theme fails to load */
+    .light-mode-fix {
+      color: #002366 !important;
+      background-color: #FFFFFF !important;
+    }
   </style>
 <script type="importmap">
 {

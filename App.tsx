@@ -24,12 +24,15 @@ const App: React.FC = () => {
     if (savedTheme) {
       setTheme(savedTheme);
     } else {
-      setTheme('light');
+      setTheme('light'); // Default to light mode as requested
     }
   }, []);
 
   useEffect(() => {
-    document.body.className = theme === 'dark' ? 'antialiased sanctuary-bg-dark' : 'antialiased sanctuary-bg-light';
+    // Apply appropriate class to body for background gradients defined in index.html
+    document.body.className = theme === 'dark' 
+      ? 'antialiased sanctuary-bg-dark' 
+      : 'antialiased sanctuary-bg-light';
   }, [theme]);
 
   const handleAuthSuccess = (userData: User) => {
@@ -51,7 +54,7 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <div className={`flex flex-col min-h-screen transition-all duration-700 ${
-        theme === 'dark' ? 'text-white' : 'bg-[#FDFDFD] text-royal'
+        theme === 'dark' ? 'text-white' : 'bg-white text-royal'
       }`}>
         <Header 
           user={user} 
