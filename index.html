@@ -35,7 +35,8 @@
       color: white;
       scroll-behavior: smooth; 
       margin: 0; 
-      padding: 0; 
+      padding: 0;
+      min-height: 100vh;
     }
     
     ::-webkit-scrollbar { width: 6px; }
@@ -53,7 +54,7 @@
       position: relative;
     }
     
-    /* Architectural Texture Overlay */
+    /* Architectural Texture Overlay - MOVED TO BACKGROUND */
     .sanctuary-bg-dark::before {
       content: "";
       position: fixed;
@@ -63,7 +64,7 @@
         linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
       background-size: 50px 50px;
       pointer-events: none;
-      z-index: 1;
+      z-index: -2; /* Stays behind everything */
     }
 
     .sanctuary-bg-dark::after {
@@ -73,7 +74,13 @@
       background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
       opacity: 0.2;
       pointer-events: none;
-      z-index: 2;
+      z-index: -1; /* Stays behind everything */
+    }
+
+    /* Content wrapper safety */
+    #root {
+      position: relative;
+      z-index: 10;
     }
 
     .gold-gradient-text {
@@ -107,5 +114,7 @@
 </head>
 <body class="sanctuary-bg-dark text-white antialiased">
   <div id="root"></div>
+  <!-- Explicitly load the entry point -->
+  <script type="module" src="index.tsx"></script>
 </body>
 </html>
