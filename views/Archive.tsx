@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import BookCard from '../components/BookCard.tsx';
 import { MOCK_BOOKS } from '../constants.tsx';
@@ -15,7 +16,7 @@ const Archive: React.FC<{ theme: 'light' | 'dark' }> = ({ theme }) => {
         <div className="text-center mb-20">
           <p className={`font-bold uppercase tracking-[0.4em] text-[10px] mb-4 ${isDark ? 'text-gold' : 'text-maroon'}`}>Elite Collections</p>
           <h2 className={`font-cinzel text-5xl font-bold uppercase transition-colors ${isDark ? 'text-white' : 'text-royal'}`}>The Archives</h2>
-          <div className="w-32 h-[1px] bg-gold mx-auto mt-8"></div>
+          <div className={`w-32 h-[1px] mx-auto mt-8 ${isDark ? 'bg-gold' : 'bg-maroon'}`}></div>
         </div>
 
         <div className="flex flex-wrap justify-center gap-6 mb-16">
@@ -25,7 +26,7 @@ const Archive: React.FC<{ theme: 'light' | 'dark' }> = ({ theme }) => {
               onClick={() => setFilter(cat)}
               className={`px-6 py-2 text-[10px] font-bold uppercase tracking-widest border transition-all ${
                 filter === cat 
-                  ? 'bg-gold text-royal border-gold' 
+                  ? `${isDark ? 'bg-gold text-royal border-gold' : 'bg-royal text-gold border-royal'}` 
                   : `${isDark ? 'text-gold border-gold/30 hover:bg-gold/10' : 'text-royal border-royal/30 hover:bg-royal/5'}`
               }`}
             >
@@ -41,7 +42,7 @@ const Archive: React.FC<{ theme: 'light' | 'dark' }> = ({ theme }) => {
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 opacity-40 italic">
+          <div className={`text-center py-20 opacity-40 italic ${isDark ? 'text-white' : 'text-royal'}`}>
             "The chamber is currently being curated. Please return at a later hour."
           </div>
         )}
