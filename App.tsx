@@ -13,7 +13,6 @@ import { User } from './types';
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  // Defaulting to 'dark' mode as requested
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
@@ -21,7 +20,6 @@ const App: React.FC = () => {
     if (savedUser) setUser(JSON.parse(savedUser));
     
     const savedTheme = localStorage.getItem('eklavya_theme') as 'light' | 'dark';
-    // If a theme was explicitly saved, use it, otherwise stay 'dark'
     if (savedTheme) setTheme(savedTheme);
   }, []);
 
@@ -43,8 +41,8 @@ const App: React.FC = () => {
 
   return (
     <HashRouter>
-      <div className={`flex flex-col min-h-screen transition-colors duration-700 ${
-        theme === 'dark' ? 'bg-[#000814] text-white' : 'bg-[#F5F5DC] text-royal'
+      <div className={`flex flex-col min-h-screen transition-all duration-700 ${
+        theme === 'dark' ? 'sanctuary-bg-dark text-white' : 'bg-[#F5F5DC] text-royal'
       }`}>
         <Header 
           user={user} 
@@ -54,7 +52,7 @@ const App: React.FC = () => {
           toggleTheme={toggleTheme} 
         />
         
-        <main className="flex-grow">
+        <main className="flex-grow relative z-10">
           <Routes>
             <Route path="/" element={<Home theme={theme} />} />
             <Route path="/archive" element={<Archive theme={theme} />} />
