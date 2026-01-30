@@ -1,0 +1,7 @@
+{
+  "name": "Ethics Library",
+  "description": "A premium digital sanctuary dedicated to the pursuit of ethical mastery, philosophical depth, and sophisticated scholarship.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
