@@ -1,18 +1,23 @@
+
 import { GoogleGenAI, Type } from "@google/genai";
 import { CONTACT_INFO } from "./constants.tsx";
 
-// Safe API key extraction
+// Robust API key extraction for Vite environments
 const getApiKey = () => {
-  try {
-    return process.env.API_KEY || "";
-  } catch (e) {
-    return "";
+  if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
+    return process.env.API_KEY;
   }
+  return "";
 };
 
-const ai = new GoogleGenAI({ apiKey: getApiKey() });
-
 export async function askRoyalSage(query: string) {
+  const apiKey = getApiKey();
+  if (!apiKey) {
+    return "I apologize, Esteemed Seeker. The archives are currently veiled (API Key missing). Please check your configuration.";
+  }
+
+  const ai = new GoogleGenAI({ apiKey });
+  
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
@@ -42,6 +47,11 @@ export async function askRoyalSage(query: string) {
 }
 
 export async function getEliteRecommendations(interest: string) {
+  const apiKey = getApiKey();
+  if (!apiKey) return [];
+
+  const ai = new GoogleGenAI({ apiKey });
+
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
