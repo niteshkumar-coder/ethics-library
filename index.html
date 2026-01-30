@@ -28,7 +28,15 @@
     }
   </script>
   <style>
-    body { scroll-behavior: smooth; margin: 0; padding: 0; }
+    /* Hardcoded dark base to prevent white screen */
+    html, body { 
+      background-color: #000814; 
+      color: white;
+      scroll-behavior: smooth; 
+      margin: 0; 
+      padding: 0; 
+    }
+    
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #000814; }
     ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
@@ -39,26 +47,32 @@
     
     .gold-glow { text-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
     
-    /* Background Texture & Glow */
+    /* Background Texture & Depth */
     .sanctuary-bg-dark {
-      background: radial-gradient(circle at 50% 50%, #001a33 0%, #000814 100%);
+      background: radial-gradient(circle at 50% 50%, #001a33 0%, #000814 100%) fixed;
       position: relative;
     }
     
-    .sanctuary-bg-dark::before {
+    .sanctuary-bg-dark::after {
       content: "";
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      inset: 0;
       background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
-      opacity: 0.03;
+      opacity: 0.05;
       pointer-events: none;
-      z-index: 1;
+      z-index: 0;
     }
 
     .gold-gradient-text {
       background: linear-gradient(to bottom, #FFF, #D4AF37);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+    
+    .glass-dark {
+      background: rgba(0, 8, 20, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 175, 55, 0.1);
     }
   </style>
 <script type="importmap">

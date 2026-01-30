@@ -87,7 +87,7 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
         </div>
       </section>
 
-      {/* PILLARS - Distinct Obsidian Background */}
+      {/* PILLARS - Distinct Glassmorphic Background */}
       <section className={`py-24 border-y border-gold/10 transition-colors duration-1000 ${isDark ? 'bg-[#000a1f]' : 'bg-[#001133]'}`}>
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
           {sanctuaryPillars.map((pill) => (

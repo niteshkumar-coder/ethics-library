@@ -13,6 +13,7 @@ import { User } from './types';
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  // Strictly defaulting to dark
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
@@ -20,7 +21,11 @@ const App: React.FC = () => {
     if (savedUser) setUser(JSON.parse(savedUser));
     
     const savedTheme = localStorage.getItem('eklavya_theme') as 'light' | 'dark';
-    if (savedTheme) setTheme(savedTheme);
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      setTheme('dark'); // Default for new users
+    }
   }, []);
 
   const handleAuthSuccess = (userData: User) => {
