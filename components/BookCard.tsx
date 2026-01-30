@@ -11,45 +11,41 @@ interface BookCardProps {
 const BookCard: React.FC<BookCardProps> = ({ book, theme }) => {
   const isDark = theme === 'dark';
   return (
-    <div className={`group relative p-4 border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full ${
-      isDark ? 'bg-white/5 border-gold/20' : 'bg-white border-gold/20 shadow-lg'
-    }`}>
+    <div className={`group relative p-3 border transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 flex flex-col h-full bg-white/5 border-gold/20`}>
       {book.isPremium && (
-        <div className="absolute top-6 right-6 z-10 bg-gold text-royal text-[10px] px-2 py-1 font-bold uppercase tracking-tighter shadow-md">
+        <div className="absolute top-4 right-4 z-10 bg-gold text-black text-[8px] px-1.5 py-0.5 font-bold uppercase tracking-tighter">
           Elite
         </div>
       )}
-      <div className="overflow-hidden aspect-[2/3] mb-4 bg-royal/5">
+      <div className="overflow-hidden aspect-[4/5] mb-3 bg-royal/5">
         <img 
           src={book.cover} 
           alt={book.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[0.2] group-hover:grayscale-0"
         />
       </div>
-      <div className="space-y-2 flex-grow">
-        <p className={`text-[10px] uppercase font-bold tracking-widest ${isDark ? 'text-gold' : 'text-maroon'}`}>{book.category}</p>
-        <h3 className={`font-playfair text-lg font-bold line-clamp-1 transition-colors ${isDark ? 'text-white' : 'text-royal'}`}>
+      <div className="space-y-1 flex-grow">
+        <p className="text-[8px] uppercase font-bold tracking-widest text-gold">{book.category}</p>
+        <h3 className="font-playfair text-base font-bold line-clamp-1 text-white">
           {book.title}
         </h3>
-        <p className={`text-sm italic font-lora opacity-70 ${isDark ? 'text-white' : 'text-royal'}`}>
+        <p className="text-[11px] italic font-lora opacity-50 text-white">
           By {book.author}
         </p>
-        <p className={`text-xs line-clamp-5 mt-2 leading-relaxed opacity-70 font-lora ${isDark ? 'text-white/80' : 'text-royal/80'}`}>
+        <p className="text-[10px] line-clamp-3 mt-1.5 leading-snug opacity-60 font-lora text-white/80">
           {book.description}
         </p>
       </div>
-      <div className="pt-6 flex items-center justify-between mt-auto">
+      <div className="pt-4 flex items-center justify-between mt-auto">
         <Link 
           to={`/read/${book.id}`}
-          className={`text-[11px] font-bold uppercase tracking-[0.2em] border-b-2 transition-all ${
-            isDark ? 'text-gold border-gold/40 hover:border-gold' : 'text-royal border-royal/40 hover:border-royal'
-          }`}
+          className="text-[9px] font-bold uppercase tracking-[0.2em] border-b border-gold/40 hover:border-gold text-gold transition-all"
         >
-          Enter Chamber
+          Enter
         </Link>
-        <div className="flex space-x-1">
+        <div className="flex space-x-0.5">
           {[...Array(5)].map((_, i) => (
-            <span key={i} className={`text-[10px] ${i < Math.floor(book.rating) ? 'text-gold' : 'text-gray-300'}`}>
+            <span key={i} className={`text-[8px] ${i < Math.floor(book.rating) ? 'text-gold' : 'text-gray-600'}`}>
               ✦
             </span>
           ))}

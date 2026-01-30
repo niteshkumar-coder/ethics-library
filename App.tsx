@@ -14,26 +14,11 @@ import { User } from './types.ts';
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
     const savedUser = localStorage.getItem('eklavya_user');
     if (savedUser) setUser(JSON.parse(savedUser));
-    
-    const savedTheme = localStorage.getItem('eklavya_theme') as 'light' | 'dark';
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      setTheme('light'); // Default to light mode as requested
-    }
   }, []);
-
-  useEffect(() => {
-    // Apply appropriate class to body for background gradients defined in index.html
-    document.body.className = theme === 'dark' 
-      ? 'antialiased sanctuary-bg-dark' 
-      : 'antialiased sanctuary-bg-light';
-  }, [theme]);
 
   const handleAuthSuccess = (userData: User) => {
     setUser(userData);
@@ -45,42 +30,32 @@ const App: React.FC = () => {
     localStorage.removeItem('eklavya_user');
   };
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('eklavya_theme', newTheme);
-  };
-
   return (
     <HashRouter>
-      <div className={`flex flex-col min-h-screen transition-all duration-700 ${
-        theme === 'dark' ? 'text-white' : 'bg-white text-royal'
-      }`}>
+      <div className="flex flex-col min-h-screen transition-all duration-700 bg-black text-white selection:bg-gold/30">
         <Header 
           user={user} 
           onAuthClick={() => setIsAuthModalOpen(true)} 
           onLogout={handleLogout}
-          theme={theme} 
-          toggleTheme={toggleTheme} 
         />
         
         <main className="flex-grow relative z-10">
           <Routes>
-            <Route path="/" element={<Home theme={theme} />} />
-            <Route path="/archive" element={<Archive theme={theme} />} />
-            <Route path="/read/:id" element={<Reader theme={theme} />} />
-            <Route path="/sage" element={<RoyalSage theme={theme} />} />
-            <Route path="/vision" element={<Vision theme={theme} />} />
+            <Route path="/" element={<Home theme="dark" />} />
+            <Route path="/archive" element={<Archive theme="dark" />} />
+            <Route path="/read/:id" element={<Reader theme="dark" />} />
+            <Route path="/sage" element={<RoyalSage theme="dark" />} />
+            <Route path="/vision" element={<Vision theme="dark" />} />
           </Routes>
         </main>
 
-        <Footer theme={theme} />
+        <Footer theme="dark" />
 
         <AuthModal 
           isOpen={isAuthModalOpen} 
           onClose={() => setIsAuthModalOpen(false)} 
           onAuthSuccess={handleAuthSuccess}
-          theme={theme}
+          theme="dark"
         />
       </div>
     </HashRouter>
