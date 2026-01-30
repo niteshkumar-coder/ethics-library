@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { REVIEWS, CONTACT_INFO, BRAND } from '../constants';
+import { REVIEWS, CONTACT_INFO, BRAND } from '../constants.tsx';
 
 interface HomeProps { theme: 'light' | 'dark'; }
 
@@ -37,7 +37,6 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
 
   return (
     <div className="flex flex-col">
-      {/* HERO SECTION - Enhanced Image Visibility */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
@@ -88,7 +87,6 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
 
       <div className="section-separator"></div>
 
-      {/* PILLARS - Charcoal Layer */}
       <section className="py-32 bg-[#0a0a0a] relative z-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-14">
           {sanctuaryPillars.map((pill) => (
@@ -109,7 +107,6 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
 
       <div className="section-separator"></div>
 
-      {/* GALLERY - Pure Black Grid */}
       <section className="py-40 bg-black relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-10">
@@ -136,7 +133,6 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
 
       <div className="section-separator"></div>
 
-      {/* REVIEWS - Midnight Navy Accent */}
       <section className="py-32 bg-[#000814] relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-28">
@@ -163,7 +159,6 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
 
       <div className="section-separator"></div>
 
-      {/* PETITION - Deep Crimson Warmth */}
       <section id="petition" className="py-40 bg-[#250000] relative overflow-hidden z-10">
         <div className="absolute inset-0 opacity-15 bg-[url('https://www.transparenttextures.com/patterns/aged-paper.png')]"></div>
         <div className="max-w-5xl mx-auto px-6 relative z-10">
@@ -202,7 +197,6 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
         </div>
       </section>
 
-      {/* MAP - Enhanced HUD contrast */}
       <section className="py-40 bg-black relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between mb-28 gap-14">
@@ -233,7 +227,6 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black"></div>
             
-            {/* Tactical Grid Overlay */}
             <div className="absolute inset-0 opacity-10 pointer-events-none" style={{backgroundImage: 'linear-gradient(rgba(212,175,55,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.2) 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
 
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
@@ -242,7 +235,6 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
                 <div className="relative p-8 bg-black border-[3px] border-gold rounded-full shadow-[0_0_60px_rgba(212,175,55,0.6)] group-hover:scale-110 transition-transform duration-700">
                   <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 </div>
-                {/* Floating HUD Panel */}
                 <div className="absolute left-28 top-0 bg-black/95 border-2 border-gold/50 p-8 backdrop-blur-3xl rounded-xl whitespace-nowrap shadow-[0_30px_70px_rgba(0,0,0,1)] animate-in fade-in slide-in-from-left duration-1000 border-l-[6px]">
                   <p className="text-gold font-cinzel font-bold text-[13px] tracking-[0.4em] uppercase mb-3 gold-glow">Sanctuary Locked</p>
                   <p className="text-white font-lora italic text-2xl mb-3">Ethics Main Archive</p>

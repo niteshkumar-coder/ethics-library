@@ -1,8 +1,6 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
-import { CONTACT_INFO } from "./constants";
+import { CONTACT_INFO } from "./constants.tsx";
 
-// The API key is assumed to be in process.env.API_KEY
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export async function askRoyalSage(query: string) {

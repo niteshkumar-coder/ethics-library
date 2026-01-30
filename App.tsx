@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import AuthModal from './components/AuthModal';
-import Home from './views/Home';
-import Archive from './views/Archive';
-import Reader from './views/Reader';
-import RoyalSage from './views/RoyalSage';
-import Vision from './views/Vision';
-import { User } from './types';
+import Header from './components/Header.tsx';
+import Footer from './components/Footer.tsx';
+import AuthModal from './components/AuthModal.tsx';
+import Home from './views/Home.tsx';
+import Archive from './views/Archive.tsx';
+import Reader from './views/Reader.tsx';
+import RoyalSage from './views/RoyalSage.tsx';
+import Vision from './views/Vision.tsx';
+import { User } from './types.ts';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  // Strictly defaulting to dark
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const App: React.FC = () => {
     if (savedTheme) {
       setTheme(savedTheme);
     } else {
-      setTheme('dark'); // Default for new users
+      setTheme('dark');
     }
   }, []);
 
