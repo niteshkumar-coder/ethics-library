@@ -1,7 +1,6 @@
-
 import React, { useState, useRef, useEffect } from 'react';
-import { askRoyalSage } from '../geminiService';
-import { ChatMessage } from '../types';
+import { askRoyalSage } from '../geminiService.ts';
+import { ChatMessage } from '../types.ts';
 
 const RoyalSage: React.FC<{ theme: 'light' | 'dark' }> = ({ theme }) => {
   const isDark = theme === 'dark';

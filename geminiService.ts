@@ -1,7 +1,16 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { CONTACT_INFO } from "./constants.tsx";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Safe API key extraction
+const getApiKey = () => {
+  try {
+    return process.env.API_KEY || "";
+  } catch (e) {
+    return "";
+  }
+};
+
+const ai = new GoogleGenAI({ apiKey: getApiKey() });
 
 export async function askRoyalSage(query: string) {
   try {

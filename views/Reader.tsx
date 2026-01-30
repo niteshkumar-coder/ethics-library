@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { MOCK_BOOKS } from '../constants';
-import { Book } from '../types';
+import { MOCK_BOOKS } from '../constants.tsx';
+import { Book } from '../types.ts';
 
 const Reader: React.FC<{ theme: 'light' | 'dark' }> = ({ theme }) => {
   const { id } = useParams();

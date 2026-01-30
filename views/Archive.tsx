@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
-import BookCard from '../components/BookCard';
-import { MOCK_BOOKS } from '../constants';
+import BookCard from '../components/BookCard.tsx';
+import { MOCK_BOOKS } from '../constants.tsx';
 
 const Archive: React.FC<{ theme: 'light' | 'dark' }> = ({ theme }) => {
   const isDark = theme === 'dark';
