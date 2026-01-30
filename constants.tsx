@@ -41,7 +41,7 @@ export const MOCK_BOOKS: Book[] = [
     author: 'Sage Marcus',
     category: 'Philosophy',
     cover: 'https://images.unsplash.com/photo-1491841573634-28140fc7ced7?q=80&w=400',
-    description: 'An analytical study of ancient ethics applied to modern digital pedagogy and leadership.',
+    description: 'An exhaustive analytical study of ancient ethics, bridging the gap between Aristotelian virtue and modern digital leadership. This volume serves as a roadmap for scholars seeking to integrate timeless moral principles into the complex hierarchies of the contemporary pedagogical landscape.',
     rating: 5,
     isPremium: true
   },
@@ -51,7 +51,7 @@ export const MOCK_BOOKS: Book[] = [
     author: 'Julian Thorne',
     category: 'Art',
     cover: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=400',
-    description: 'Exploring the visual vernacular of noble architectures and ethical spaces.',
+    description: 'A profound exploration into the visual vernacular of noble architectures and the curated ethical spaces that define civilizations. Julian Thorne examines how the geometry of our surroundings influences the elevation of the human spirit and the cultivation of inner stillness through classical design.',
     rating: 4.8,
     isPremium: true
   },
@@ -61,7 +61,7 @@ export const MOCK_BOOKS: Book[] = [
     author: 'E. R. Masterson',
     category: 'History',
     cover: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=400',
-    description: 'A historical perspective on self-governance and moral dedication in the classical world.',
+    description: 'Offering a deep historical perspective on self-governance and moral dedication, this work traces the evolution of intellectual independence from the Stoic traditions to the present day. It remains an essential treatise for those pursuing the absolute mastery of their own consciousness in a distracting world.',
     rating: 4.9,
     isPremium: false
   }

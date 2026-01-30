@@ -34,7 +34,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, theme }) => {
         <p className={`text-sm italic font-lora opacity-70 ${isDark ? 'text-white' : 'text-royal'}`}>
           By {book.author}
         </p>
-        <p className={`text-xs line-clamp-2 mt-2 leading-relaxed opacity-60 ${isDark ? 'text-white' : 'text-royal'}`}>
+        <p className={`text-xs line-clamp-4 mt-2 leading-relaxed opacity-60 ${isDark ? 'text-white' : 'text-royal'}`}>
           {book.description}
         </p>
         <div className="pt-4 flex items-center justify-between">
