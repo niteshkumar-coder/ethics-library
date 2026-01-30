@@ -22,34 +22,34 @@
             gold: '#D4AF37',
             maroon: '#800000',
             cream: '#F5F5DC',
+            obsidian: '#050505',
           }
         }
       }
     }
   </script>
   <style>
-    /* Hardcoded dark base to prevent white screen */
+    /* Prevent white flash and blue dominance */
     html, body { 
-      background-color: #000814; 
+      background-color: #000000; 
       color: white;
       scroll-behavior: smooth; 
       margin: 0; 
       padding: 0; 
     }
     
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #000814; }
-    ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #000000; }
+    ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
     
-    .animate-scan-line { animation: scanLine 4s linear infinite; }
-    @keyframes scanLine { 0% { transform: translateY(-100%); } 100% { transform: translateY(400%); } }
+    .animate-scan-line { animation: scanLine 6s linear infinite; }
+    @keyframes scanLine { 0% { transform: translateY(-100%); } 100% { transform: translateY(500%); } }
     
-    .gold-glow { text-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+    .gold-glow { text-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
     
-    /* Background Texture & Depth */
+    /* Global Depth Texture */
     .sanctuary-bg-dark {
-      background: radial-gradient(circle at 50% 50%, #001a33 0%, #000814 100%) fixed;
+      background: radial-gradient(circle at 50% 50%, #0a0a0a 0%, #000000 100%) fixed;
       position: relative;
     }
     
@@ -57,22 +57,21 @@
       content: "";
       position: fixed;
       inset: 0;
-      background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
-      opacity: 0.05;
+      background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+      opacity: 0.1;
       pointer-events: none;
       z-index: 0;
     }
 
     .gold-gradient-text {
-      background: linear-gradient(to bottom, #FFF, #D4AF37);
+      background: linear-gradient(to bottom, #FFF 20%, #D4AF37 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     
-    .glass-dark {
-      background: rgba(0, 8, 20, 0.7);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(212, 175, 55, 0.1);
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
     }
   </style>
 <script type="importmap">
